@@ -1,0 +1,70 @@
+#! /bin/sh
+#gtrack-config
+
+prefix=/data4/NEXT/users/gmartinez/topo/GTrack
+exec_prefix=${prefix}
+includedir=${prefix}/include
+
+usage()
+{
+    cat  <<EOF
+Usage: gtrack-config [OPTION]
+
+Known values for OPTION are:
+--prefix show installation prefix
+--include prints include path
+--libdir prints the path to the library
+--libs prints name of libraries to link against
+--help displays this help and exit
+--version print version information
+
+EOF
+
+    exit $1
+}
+
+if test $# -eq 0; then
+    usage 1
+fi
+while test $# -gt 0; do
+    case "$1" in
+    -*=*)
+        optarg=`echo "$1" | sed 's/[-_a-zA-Z0-9]*=//'`
+        ;;
+    *)
+        optarg=
+        ;;    esac
+
+    case "$1" in
+    --prefix)
+        echo /data4/NEXT/users/gmartinez/topo/GTrack
+        ;;
+
+    --version)
+        echo v0r1p4 
+        exit 0
+        ;;
+
+    --help)
+        usage 0
+        ;;
+
+    --include)
+        echo -I/data4/NEXT/users/gmartinez/topo/GTrack/include
+        ;;
+
+    --libdir)
+        echo -L/data4/NEXT/users/gmartinez/topo/GTrack/lib
+        ;;
+
+    --libs)
+        echo -L/data4/NEXT/users/gmartinez/topo/GTrack/lib -lgtrack
+        ;;
+
+    *)
+        usage
+        exit 1        ;;    esac
+    shift
+done
+
+exit 0

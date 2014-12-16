@@ -1,0 +1,18 @@
+<configdoc>
+
+<config name="GTrack" version="default">
+
+<!--
+you should define here your module configuration parameters, for example:
+
+<param name="AnInt"> <int> 1 </int>
+  Shows how to create and integer parameter
+</param>
+
+See other examples at:
+http://enrico1.physics.indiana.edu/fmwk/wiki/index.php?n=FMWK.Config
+-->
+
+</config>
+
+</configdoc>
