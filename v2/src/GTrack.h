@@ -13,15 +13,16 @@
 #include <vector>
 #include <string>
 #include "TObject.h"
+#include "TObjArray.h"
 
 namespace GInfo {
 
 class GSensor : public TObject
 {
  public:
-  GSensor() {}
+  GSensor();
   GSensor( int sensor_id, double sensor_q );
-  ~GSensor() {}
+  ~GSensor();
     
   int ID;
   double Q;
@@ -34,9 +35,9 @@ class GSensor : public TObject
 class GSlice : public TObject
 {
  public:
-  GSlice() {}
+  GSlice();
   GSlice( std::map<int,double> cathode, std::map<int,double> anode, double z );
-  ~GSlice() {}
+  ~GSlice();
     
   double E;
   double Q;
@@ -45,28 +46,31 @@ class GSlice : public TObject
   double Z;
   int NSiPMs;
     
-  std::vector< GSensor > PMTs;
-  std::vector< GSensor > SiPMs;
+  //  std::vector< GSensor > PMTs;
+  //  std::vector< GSensor > SiPMs;
+  TObjArray* PMTs;
+  TObjArray* SiPMs;
   ClassDef(GSlice,1);
 };
 
 class GPeak : public TObject
 {
  public:
-  GPeak() {}
-  ~GPeak() {}
+  GPeak();
+  ~GPeak();
     
-  char* type;
+  char type[3];
   int nslices;
-  std::vector< GSlice > Slices;
+  //  std::vector< GSlice > Slices;
+  TObjArray* Slices;
   ClassDef(GPeak,1);    
 };
 
 class GTrack : public TObject
 {
  public:
-  GTrack() {}
-  ~GTrack() {}
+  GTrack();
+  ~GTrack();
     
   double E;
   double Q;

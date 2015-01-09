@@ -1,7 +1,7 @@
 #! /bin/sh
 #gtrack-config
 
-prefix=/Users/Gonzalo/github/GTrack/v1
+prefix=/Users/Gonzalo/github/GTrack/v2
 exec_prefix=${prefix}
 includedir=${prefix}/include
 
@@ -37,11 +37,11 @@ while test $# -gt 0; do
 
     case "$1" in
     --prefix)
-        echo /Users/Gonzalo/github/GTrack/v1
+        echo /Users/Gonzalo/github/GTrack/v2
         ;;
 
     --version)
-        echo v0r1p4 
+        echo v0r1p6 
         exit 0
         ;;
 
@@ -50,15 +50,15 @@ while test $# -gt 0; do
         ;;
 
     --include)
-        echo -I/Users/Gonzalo/github/GTrack/v1/include
+        echo -I/Users/Gonzalo/github/GTrack/v2/include
         ;;
 
     --libdir)
-        echo -L/Users/Gonzalo/github/GTrack/v1/lib
+        echo -L/Users/Gonzalo/github/GTrack/v2/lib
         ;;
 
     --libs)
-        echo -L/Users/Gonzalo/github/GTrack/v1/lib -lgtrack
+        echo -L/Users/Gonzalo/github/GTrack/v2/lib -lgtrack
         ;;
 
     *)
