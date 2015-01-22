@@ -75,10 +75,11 @@ class GTrack : public TObject
   double E;
   double Q;
 
-  GPeak S1;
-  GPeak S2;
+  GPeak* S1;
+  GPeak* S2;
 
   ClassDef(GTrack,1);
 };
-}
+
+} // namespace GInfo
 #endif /* defined(____GTrack__) */

@@ -48,8 +48,8 @@ GSlice::GSlice()
   Y = 0.;
   Z = 0.;
   NSiPMs = -1;
-  PMTs = 0;
-  SiPMs = 0;
+  PMTs = new TObjArray();
+  SiPMs = new TObjArray();
 }
 
 GSlice::GSlice( std::map<int,double> cathode, std::map<int,double> anode, double z )
@@ -101,7 +101,7 @@ GPeak::GPeak()
 {
   strcpy(type,"00");
   nslices = -1;
-  Slices = 0;
+  Slices = new TObjArray();
 }
 
 GPeak::~GPeak()
@@ -114,10 +114,12 @@ GTrack::GTrack()
   E = -1.;
   Q = -1.;
   
-  S1 = GPeak();
-  S2 = GPeak();
+  S1 = new GPeak();
+  S2 = new GPeak();
 }
 
 GTrack::~GTrack()
 {
+  delete S1;
+  delete S2;
 }
